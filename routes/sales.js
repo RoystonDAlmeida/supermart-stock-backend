@@ -7,7 +7,7 @@ const Product = require('../models/Product');
 // GET all sales for the authenticated user
 router.get('/', async (req, res) => {
   try {
-    const sales = await Sale.find({ userId: req.user.id }).sort({ date: -1 });
+    const sales = await Sale.find({ }).sort({ date: -1 });
     res.json(sales);
   } catch (err) {
     res.status(500).json({ message: err.message });
