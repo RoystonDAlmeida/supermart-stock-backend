@@ -33,6 +33,28 @@ mongoose.connect(process.env.MONGODB_URI, {
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('Could not connect to MongoDB', err));
 
+// --- START: Health Check Endpoint ---
+app.get('/health', async (req, res) => {
+  try {
+    // Check database connection state (optional but recommended)
+    // 0: disconnected, 1: connected, 2: connecting, 3: disconnecting
+    const dbState = mongoose.connection.readyState;
+    if (dbState === 1) {
+      // Optional: Ping the database for a more active check
+      await mongoose.connection.db.admin().ping();
+      res.status(200).json({ status: 'UP', message: 'Server and database connection are healthy.' });
+    } else {
+      // If not connected, report unhealthy status
+      res.status(503).json({ status: 'DOWN', message: `Server is up, but database connection state is: ${dbState}` });
+    }
+  } catch (error) {
+    console.error('Health check failed during DB ping:', error);
+    // If ping fails, report unhealthy status
+    res.status(503).json({ status: 'DOWN', message: 'Server is up, but database ping failed.', error: error.message });
+  }
+});
+// --- END: Health Check Endpoint ---
+
 // Public routes - no authentication needed
 app.use('/auth', authRoutes);
 
