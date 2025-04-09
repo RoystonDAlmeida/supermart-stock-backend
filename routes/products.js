@@ -7,7 +7,7 @@ const Product = require('../models/Product');
 router.get('/', async (req, res) => {
   try {
     // All users can see all products, regardless of who created them
-    const products = await Product.find({ userId: req.user.id });
+    const products = await Product.find({ });
     res.json(products);
   } catch (err) {
     res.status(500).json({ message: err.message });
