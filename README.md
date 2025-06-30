@@ -1,5 +1,23 @@
 # Supermarket Stock Management - Backend
 
+<p align="center">
+  <a href="https://nodejs.org/" title="Node.js">
+    <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js"/>
+  </a>
+  <a href="https://expressjs.com/" title="Express.js">
+    <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express.js"/>
+  </a>
+  <a href="https://mongodb.com/" title="MongoDB">
+    <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB"/>
+  </a>
+  <a href="https://jwt.io/" title="JWT">
+    <img src="https://img.shields.io/badge/JSON%20Web%20Tokens-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white" alt="JWT"/>
+  </a>
+  <a href="https://railway.app/" title="Railway">
+    <img src="https://img.shields.io/badge/Railway-0B0D0E?style=for-the-badge&logo=railway&logoColor=white" alt="Railway"/>
+  </a>
+</p>
+
 This repository contains the backend API for the Supermarket Stock Management application. It provides the server-side logic for managing users, products, sales, and stock levels using Node.js, Express, and MongoDB.
 
 ## Table of Contents
